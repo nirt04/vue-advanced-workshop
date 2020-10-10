@@ -1,0 +1,20 @@
+<script>
+  let state = {};
+  function convert(obj) {
+    state = { ...state, ...obj };
+    Object.keys(obj).forEach((key) => {
+      Object.defineProperty(obj, key, {
+        get() {
+          console.log(`getting key "${key}": ${state[key]}`);
+          return state[key];
+        },
+        set(newVal) {
+          console.log(`setting key "${key}" to: ${newVal}`);
+          state[key] = newVal;
+        },
+      });
+    });
+
+    // Implement this!
+  }
+</script>
